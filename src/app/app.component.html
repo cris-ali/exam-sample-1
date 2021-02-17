@@ -1,0 +1,54 @@
+<h1>Simple Form</h1>
+
+<form #form="ngForm" (ngSubmit)="onSubmit(form)">
+	<label>
+    <div>First Name:</div>
+    <input type="text" [(ngModel)]="model.firstname" name="firstname">
+  </label>
+	<br>
+	<br>
+	<label>
+    <div>Last Name:</div>
+    <input type="text" [(ngModel)]="model.lastname" name="lastname">
+  </label>
+	<br>
+	<br>
+	<label>
+    <div>Gender:</div>
+    <select [(ngModel)]="model.gender" name="gender">
+      <option >Male</option>
+      <option >Female</option>
+      <option >Unsure</option>
+    </select>
+  </label>
+	<br>
+	<br>
+	<div>
+		<input type="submit" value="Submit">
+  </div>
+</form>
+<br>
+	<br>
+  <br>
+	<br>
+
+<table>
+	<thead>
+    <th>#</th>
+		<th>First Name</th>
+		<th>Last Name</th>
+		<th>Gender</th>
+		<th>Action</th>
+	</thead>
+	<tbody>
+		<tr *ngFor="let row of tableRows; let i = index">
+      <td>{{i + 1}}</td>
+			<td>{{row.firstname}}</td>
+			<td>{{row.lastname}}</td>
+			<td>{{row.gender}}</td>
+			<td>
+				<button (click)="onDelete(i)">Delete</button>
+			</td>
+		</tr>
+	</tbody>
+</table>
